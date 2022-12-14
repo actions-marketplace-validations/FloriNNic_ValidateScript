@@ -32,7 +32,7 @@ jobs:
            SCRIPTING_LICENSE_KEY: ${{secrets.SCRIPTING_LICENSE_KEY}}
           run: cd build; ./gradlew --info --stacktrace
 
-        - name: Deploy 🚀
-            uses: JamesIves/github-pages-deploy-action@v4
-            with:
-              folder: build # The folder the action should deploy.
+        - name: Deploy
+          uses: JamesIves/github-pages-deploy-action@v4
+          with:
+            folder: build # The folder the action should deploy.
