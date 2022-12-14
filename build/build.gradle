@@ -28,14 +28,5 @@ task runValidation(type:Exec, dependsOn: [initValidation]) {
     }
 }
 
-//task postProcessValidation(dependsOn: [runValidation]) {
-// String projectDir = "."
-// doLast {
-//    ant.replace(
-//      file: '${projectDir}/../../site/validationReport.html',
-//  )
-// }
-//}
-
 defaultTasks 'runValidation'
 
