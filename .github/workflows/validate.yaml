@@ -1,0 +1,17 @@
+name: Run Validation Script
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+    types: [ opened, synchronize, reopened ]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Oxygen Validation Script
+        uses: FloriNNic/ValidateScript@v1.0.0
