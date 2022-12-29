@@ -15,3 +15,6 @@ jobs:
     steps:
       - name: Oxygen Validation Script
         uses: FloriNNic/ValidateScript@v1.0.0
+        with:
+          licenseKey: ${{secrets.SCRIPTING_LICENSE_KEY}}
+

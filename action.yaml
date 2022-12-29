@@ -8,6 +8,9 @@ inputs:
     description: The name of directory containing the files to be validated.
     required: true
     default: validation
+  licenseKey:
+    description: Oxygen Scripting license key.
+    required: true
 runs:
   using: "composite"
   steps:
@@ -35,9 +38,7 @@ runs:
       shell: bash
 
     - name: Build with Gradle
-      env: # Or as an environment variable
-        SCRIPTING_LICENSE_KEY: ${{secrets.SCRIPTING_LICENSE_KEY}}
-      run: cd scripting; cd build; ./gradlew runValidation -PvalidationDir=${{ github.event.inputs.validationDir }} --info --stacktrace
+      run: cd scripting; cd build; ./gradlew runValidation -PvalidationDir=${{ github.event.inputs.validationDir }} -PlicenseKey=${{ github.event.inputs.licenseKey }} --info --stacktrace
       shell: bash
 
     - name: Deploy
