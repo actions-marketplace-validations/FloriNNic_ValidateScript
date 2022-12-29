@@ -22,11 +22,21 @@ task runValidation(type:Exec, dependsOn: [initValidation]) {
 
   doLast {
         if(execResult.getExitValue() != 0) {
-            println new File("${projectDir}/docs/validationReport.html").text
+            println new File("${projectDir}/build/docs/validationReport.html").text
             throw new TaskExecutionException( it, new Exception( "Validation failed, see task output for details: "))
         }
     }
 }
+
+task postProcessValidation(dependsOn: [runValidation]) {
+ String projectDir = "."
+ doLast {
+    ant.replace(
+      file: '${projectDir}/../../site/validationReport.html',
+  )
+ }
+}
+
 
 defaultTasks 'runValidation'
 
