@@ -14,7 +14,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Oxygen Validation Script
-        uses: FloriNNic/ValidateScript@v1.0.1
+        uses: FloriNNic/ValidateScript@v1.0.2
         with:
           licenseKey: ${{secrets.SCRIPTING_LICENSE_KEY}}
 
