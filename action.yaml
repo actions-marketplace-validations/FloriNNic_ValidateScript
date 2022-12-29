@@ -19,7 +19,7 @@ runs:
     - name: Checkout Oxygen Scripting Template repo.
       uses: actions/checkout@v3
       with:
-        repository: https://github.com/oxygenxml/oxygen-sample-validation-script
+        repository: oxygenxml/oxygen-sample-validation-script
         path: scripting
 
     # Validate wrapper
